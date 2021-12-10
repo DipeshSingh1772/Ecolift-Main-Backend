@@ -101,4 +101,23 @@ router.get("/allRide", auth , async(req,res)=>{
 })
 
 
+////////////////////////*****************************//////////////////
+router.post("/searchRide", auth , async(req,res)=>{
+
+    try{
+    
+        const avilable_ride = await Rider.find({pickup:req.body.pickup, destination:req.body.destination}) 
+        if(avilable_ride)
+            res.status(200).send(avilable_ride)
+        else
+            res.status(400).send({"error":"Not Found Any Ride"})
+
+    }catch(e){
+        res.status(401).send(e)
+    }
+
+})
+
+
+
 module.exports = router

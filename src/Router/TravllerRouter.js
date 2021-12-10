@@ -86,7 +86,7 @@ router.patch('/updateTravller/:id', auth , async(req,res)=>{
 ////////////////////////////////***************************************//////////////////////////
 //GET request
 
-//reading all task
+//reading all travller
 router.get("/allTravller", auth , async(req,res)=>{
 
     try{
